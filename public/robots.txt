@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /_next/static/chunks/app/
 Allow: /
 
-Sitemap: https://mohitvirli.github.io/sitemap.xml
+Sitemap: https://amineharabi.tech/sitemap.xml
