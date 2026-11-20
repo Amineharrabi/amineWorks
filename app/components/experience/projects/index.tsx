@@ -6,7 +6,7 @@ import { isMobile } from "react-device-detect";
 import * as THREE from "three";
 import { usePortalStore } from "@stores";
 import { Wanderer } from "../../models/Wanderer";
-import ProjectsCarousel from "./ProjectsCarousel";
+import ProjectsCarousel, { CAROUSEL_FOV } from "./ProjectsCarousel";
 import { TouchPanControls } from "./TouchPanControls";
 
 const Projects = () => {
@@ -29,7 +29,7 @@ const Projects = () => {
   useFrame((state, delta) => {
     if (isActive) {
       if (!isMobile) {
-        camera.rotation.y = THREE.MathUtils.lerp(camera.rotation.y, -(state.pointer.x * Math.PI) / 4, 0.03);
+        camera.rotation.y = THREE.MathUtils.lerp(camera.rotation.y, -(state.pointer.x * CAROUSEL_FOV) / 4, 0.03);
         camera.position.z = THREE.MathUtils.damp(camera.position.z, 11.5 - state.pointer.y, 7, delta);
       }
     }

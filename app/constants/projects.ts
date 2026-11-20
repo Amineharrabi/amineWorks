@@ -44,4 +44,28 @@ export const PROJECTS: Project[] = [
     subtext: 'scripts to extract CHR data from ROM files and train a generative AI model to create authentic 8-bit sprites. Uses Pytorch, binary file parsing and data extraction, K-means clustering, (GANs), and computer vision techniques.',
     url: 'https://github.com/Amineharrabi/RomArtGen',
   },
+  {
+    title: 'CyberSwarm',
+    date: '2026',
+    subtext: 'An adversarial purple-team lab where LLM Red and Blue agents fight over an isolated Docker network watched by a Suricata IDS, learning between rounds through debriefs and QLoRA.',
+    url: 'https://github.com/Amineharrabi/CyberSwarm',
+  },
+  {
+    title: 'GPUFlow',
+    date: '2026',
+    subtext: 'A GPU-accelerated network analytics engine that turns raw PCAPs into Parquet flow records and runs entropy analytics with cuDF (RAPIDS) to flag DDoS, scans and exfiltration.',
+    url: 'https://github.com/Amineharrabi/GPUflow',
+  },
+  {
+    title: 'Kimi Delta Attention',
+    date: '2026',
+    subtext: 'A pure PyTorch implementation of the Kimi Delta Attention (KDA) layer from the Kimi Linear paper, verified against the raw recurrence and benchmarked against full attention.',
+    url: 'https://github.com/Amineharrabi/K3',
+  },
+  {
+    title: 'Low-VRAM Stable Diffusion',
+    date: '2026',
+    subtext: 'Memory-efficient LoRA fine-tuning of Stable Diffusion v1.5 with a 4-bit UNet, 8-bit CLIP and tiled VAE decoding, running inference on as little as 1GB of VRAM.',
+    url: 'https://github.com/Amineharrabi/StableDiffusion-1.5-Low-VRAM',
+  },
 ];

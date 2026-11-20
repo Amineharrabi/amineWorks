@@ -1,5 +1,6 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
+import { CAROUSEL_FOV } from "./ProjectsCarousel";
 
 /**
  * Claude generated this. Very good code ngl.
@@ -67,9 +68,12 @@ export const TouchPanControls = () => {
       const sensitivity = 0.005
       const newRotationY = cameraRotationRef.current.x + deltaX * sensitivity
 
-      // Apply rotation limits to prevent over-rotation
-      const maxRotation = Math.PI / 3
-      targetRotationRef.current.x = Math.max(Math.min(newRotationY, maxRotation), -maxRotation)
+      // Apply rotation limits to prevent over-rotation.
+      // A wider carousel arc grows past both ends, and further past the last tile than the first.
+      const extraArc = CAROUSEL_FOV - Math.PI
+      const maxRotationLeft = Math.PI / 3 + extraArc / 2
+      const maxRotationRight = Math.PI / 3 + extraArc
+      targetRotationRef.current.x = Math.max(Math.min(newRotationY, maxRotationLeft), -maxRotationRight)
     }
 
     const handleTouchEnd = () => {
