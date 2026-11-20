@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from 'next/font/local';
+import { FOOTER_LINKS } from "@constants";
+import SeoContent from "./components/common/SeoContent";
 import "./globals.css";
 
 const soriaFont = localFont({
@@ -12,9 +14,29 @@ const vercettiFont = localFont({
   variable: "--font-vercetti",
 });
 
+const SITE_URL = "https://amineharabi.tech";
+const SITE_TITLE = "Amine Harrabi | Data Engineer & ML Developer";
+const SITE_DESCRIPTION = "Amine Harrabi is a data engineer and machine learning developer from Sfax, Tunisia. I make things, mainly digital things: neural networks from scratch, generative models, simulations and full-stack apps.";
+
+// Structured data so search engines can tie this site and these profiles to the same person.
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Amine Harrabi",
+  url: SITE_URL,
+  image: `${SITE_URL}/weblogo.png`,
+  jobTitle: "Data Engineer",
+  alumniOf: "Faculty of Sciences of Sfax",
+  sameAs: FOOTER_LINKS.map((link) => link.url),
+};
+
 export const metadata: Metadata = {
-  title: "Amine's works",
-  description: "I make things.\nMainly digital things.\nthe gap between a thing that functions,\nand a thing that resonates..\nthat's where I spend most of my time.",
+  metadataBase: new URL(SITE_URL),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  alternates: {
+    canonical: "/",
+  },
   keywords: "Amine Harrabi, Data Engineer, Machine Learning, Full-Stack Engineer, Content Creator, Python, Rust, C++, AI, PyTorch, Web Development",
   authors: [{ name: "Amine Harrabi" }],
   creator: "Amine Harrabi",
@@ -35,17 +57,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Amine Harrabi - Data Engineer & Creator",
-    description: "I make things. Mainly digital things.",
-    url: "https://amineharrabi.com",
-    siteName: "Amine's works",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: "/",
+    siteName: "Amine Harrabi",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amine Harrabi - Data Engineer & Creator",
-    description: "I make things. Mainly digital things.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
   },
   icons: {
     icon: "/favicon.ico",
@@ -70,6 +92,11 @@ export default function RootLayout({
       <body
         className={`${soriaFont.variable} ${vercettiFont.variable} font-sans antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <SeoContent />
         {children}
       </body>
     </html>
