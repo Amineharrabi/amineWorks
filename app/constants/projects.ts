@@ -30,7 +30,7 @@ export const PROJECTS: Project[] = [
     title: 'AiGF Clone',
     date: '2026',
     subtext: 'small scripts and a notebook to convert conversation exports into a combined JSONL dataset suitable for fine-tuning a custom conversational model.',
-    url: 'https://github.com/Amineharrabi/AIGF',
+    url: 'https://github.com/Amineharrabi/GfAiClone',
   },
   {
     title: 'Matchy',
